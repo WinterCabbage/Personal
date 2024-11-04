@@ -41,11 +41,12 @@ $httpAPI("GET", "/v1/dns", null, (body) => {
 		(history.totalQueryTime * 1000) / history.numberOfQuery
 	).toFixed(2);
 
-	// Display results
+	// Display results with longest query time converted to milliseconds
 	$done({
 		title: "DNS Query Time",
-		content: `Count: ${history.numberOfQuery}\nAverage: ${averageQueryTime} ms\nLongest Query: ${history.longestQueryDomain} ${history.longestQueryTime}`,
+		content: `Count: ${history.numberOfQuery}\nAverage: ${averageQueryTime} ms\nLongest Query: ${history.longestQueryDomain} ${(
+			history.longestQueryTime * 1000
+		).toFixed(2)} ms`,
 		icon: "bolt.horizontal.circle.fill",
 	});
 });
-
