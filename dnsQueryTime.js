@@ -44,7 +44,7 @@ $httpAPI("GET", "/v1/dns", null, (body) => {
 	// Display results
 	$done({
 		title: "DNS Query Time",
-		content: `Count: ${history.numberOfQuery}\nAverage: ${averageQueryTime} ms`,
+		content: `Count: ${history.numberOfQuery}\nAverage: ${averageQueryTime} ms\nLongest Query: ${history.longestQueryDomain} ${history.longestQueryTime}`,
 		icon: "bolt.horizontal.circle.fill",
 	});
 });
